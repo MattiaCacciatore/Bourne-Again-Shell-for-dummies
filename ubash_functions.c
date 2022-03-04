@@ -1,6 +1,6 @@
 /*
  *  microbash - SETI course Computer Science
- *  Universita' Degli Studi Di Genova a.a. 2020-2021 - Italy
+ *  Universita'Â Degli Studi Di Genova a.a. 2020-2021 - Italy
  *
  *  ubash_functions.c
  *
@@ -281,6 +281,7 @@ int expmacros(char** arg){
 			prntfail(FUN_EXP, NULL, "expmacros");
 			return ERROR;
 		}
+		free(*arg);
 		*arg = strdup(var); /* Replacing expanded variable. */
 	}
 	return OK;
