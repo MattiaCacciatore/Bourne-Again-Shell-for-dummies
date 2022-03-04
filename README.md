@@ -12,4 +12,10 @@ It can run one or more commands, redirect the standard input and output,
 print the command history and it has an unique built-in command, cd 
 (change directory).
 
+$ make
+
+$ ./ubash
+
+For the readline library: $ sudo apt-get install libreadline-dev
+
 Be aware that Prof. Lagorio is aware of this code. DON'T EVEN TRY.
