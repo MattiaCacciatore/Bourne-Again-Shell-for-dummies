@@ -8,8 +8,7 @@ the '>' character and the name of the file to redirect the standard output of a 
 also it doesn't handle filename expansion, escape sequences, strings, process groups, 
 foreground/background processes and many other things.
 
-- it waits for a command name to be entered (to get user's input I used the `fgetc()` instead of `fgets()` or `readline()` from the readline library simply because
-- `fgets()` require a size limit for the input which cannot be determinate by default, and `readline()` wasn't very helpful for my learning purpose);
+- it waits for a command name to be entered (to get user's input I used the `fgetc()` instead of `fgets()` or `readline()` from the readline library simply because `fgets()` require a size limit for the input which cannot be determinate by default, and `readline()` wasn't very helpful for my learning purpose);
 - if `exit` or `^D` are entered, it exits with *exit status* `EXIT_SUCCESS` freeing all memory allocated previously;
 - it runs `/bin/<command given by user>`(or `/usr/bin/<command given by user>`, if the given command is not found in `/bin/`), through the `fork()` and `exec()` system calls.
 - it uses `wait()` to wait for child process(es) to end;
@@ -26,4 +25,4 @@ $ ./ubash
 
 For the readline library: $ sudo apt-get install libreadline-dev
 
-Be aware that Prof. Lagorio is aware of this code. DON'T EVEN TRY.
+Be aware that Prof. Lagorio is aware of this code. DON'T EVEN TRY (if you're thinking "ah ah i can just copy that and pass the exam").
