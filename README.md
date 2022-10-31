@@ -11,7 +11,7 @@ foreground/background processes and many other things.
 - it waits for a command name to be entered (to get user's input I used the `fgetc()` instead of `fgets()` or `readline()` from the readline library simply because
 - `fgets()` require a size limit for the input which cannot be determinate by default, and `readline()` wasn't very helpful for my learning purpose);
 - if `exit` or `^D` are entered, it exits with *exit status* `EXIT_SUCCESS` freeing all memory allocated previously;
-- it runs `/bin/<command given by user>`(or `/usr/bin/<command given by user>`, if the given command is not found in `/bin/`), through the `fork()` system call.
+- it runs `/bin/<command given by user>`(or `/usr/bin/<command given by user>`, if the given command is not found in `/bin/`), through the `fork()` and `exec()` system calls.
 - it uses `wait()` to wait for child process(es) to end;
 - it performs command(s) like `ls -l >` *filename*, using the `dup()` system call.
 - it performs command(s) like `ps aux | grep bash` using the `pipe()` system call. 
