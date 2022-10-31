@@ -12,7 +12,7 @@ foreground/background processes and many other things.
 - if `exit` or `^D` are entered, it exits with *exit status* `EXIT_SUCCESS` freeing all memory allocated previously;
 - it runs `/bin/<command given by user>`(or `/usr/bin/<command given by user>`, if the given command is not found in `/bin/`), through the `fork()` and `exec()` system calls.
 - it uses `wait()` to wait for child process(es) to end;
-- it performs command(s) like `ls -l >` *filename*, using the `dup()` system call.
+- it performs command(s) like `ls -l >` *filename*, using the `open()`,`dup()` and `close()` system calls.
 - it performs command(s) like `ps aux | grep bash` using the `pipe()` system call. 
 
 It can run one or more commands, redirect the standard input and output,
