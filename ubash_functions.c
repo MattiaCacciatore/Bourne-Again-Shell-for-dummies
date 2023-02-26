@@ -236,8 +236,9 @@ char*** parsline(char* input){
 
 			if(narg == MAX_ARG_CMD){
 				prntfail(FUN_PARS_ONE, NULL, "parsline");
-				cmdlist = rstall(cmdlist);
-				break;
+				free(arglist[MAX_ARG_CMD - 1]);
+				arglist[MAX_ARG_CMD - 1] = NULL;
+				arglist = rstlist(arglist);
 			}
 //------------------------------------------------------------------------------------------------------------------
 			cmdlist[ncmd] = arglist;
@@ -250,6 +251,9 @@ char*** parsline(char* input){
 
 		if(ncmd == MAX_CMD){
 			prntfail(FUN_PARS_TWO, NULL, "parsline");
+			cmdlist[MAX_CMD - 1] = rstlist(cmdlist[MAX_CMD - 1]);
+			free(cmdlist[MAX_CMD - 1]);
+			cmdlist[MAX_CMD - 1] = NULL;
 			cmdlist = rstall(cmdlist);
 		}
 	}
